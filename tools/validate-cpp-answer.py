@@ -8,6 +8,10 @@ from dataclasses import dataclass
 from pathlib import Path
 
 METHOD_CALL_RE = re.compile(r"\bmem\.(?P<name>[A-Za-z_]\w*)\s*(?:<[^>]+>)?\s*\(")
+OFFSET_RE = re.compile(r"\b0x[0-9A-Fa-f]{4,}\b")
+UNSAFE_GUARANTEE_RE = re.compile(r"\b(undetected|works on\s+(?:EAC|FACEIT|Vanguard)|bypass(?:es|ed|ing)?)\b", re.IGNORECASE)
+WARNING_PREFIX_RE = re.compile(r"\b(do not|don't|never|avoid|no)\b", re.IGNORECASE)
+
 
 
 @dataclass
@@ -34,6 +38,27 @@ def normalize_call(method: str) -> str:
     return f"Memory::{method}"
 
 
+def check_offset_dump(answer: str) -> list[str]:
+    offsets = OFFSET_RE.findall(answer)
+    if len(offsets) >= 6:
+        return [f"possible target-specific offset dump: {len(offsets)} hex constants"]
+    risky_names = ("offsets.json", "client_dll.json", "dump.cs")
+    if any(name in answer for name in risky_names):
+        return ["possible target-specific offset dump: offset artifact name present"]
+    return []
+
+
+def check_unsafe_guarantees(answer: str) -> list[str]:
+    errors: list[str] = []
+    for match in UNSAFE_GUARANTEE_RE.finditer(answer):
+        sentence_start = max(answer.rfind(".", 0, match.start()), answer.rfind("\n", 0, match.start())) + 1
+        context = answer[sentence_start:match.start()]
+        if WARNING_PREFIX_RE.search(context):
+            continue
+        errors.append(f"unsafe guarantee language: {match.group(0)}")
+    return errors
+
+
 def validate(answer_path: str | Path, index_path: str | Path, unsupported_path: str | Path) -> ValidationResult:
     answer = Path(answer_path).read_text(errors="ignore")
     supported = load_symbols(Path(index_path))
@@ -49,6 +74,9 @@ def validate(answer_path: str | Path, index_path: str | Path, unsupported_path: 
             pattern = rf"\b{re.escape(symbol)}\b"
         if symbol in answer or re.search(pattern, answer):
             errors.append(f"unsupported symbol used: {symbol}")
+
+    errors.extend(check_offset_dump(answer))
+    errors.extend(check_unsafe_guarantees(answer))
 
     for match in METHOD_CALL_RE.finditer(answer):
         symbol = normalize_call(match.group("name"))

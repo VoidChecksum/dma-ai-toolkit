@@ -50,3 +50,46 @@ def test_does_not_treat_memory_read_as_dma_namespace(tmp_path):
     result = validator.validate(answer, index, unsupported)
 
     assert result.ok
+
+
+def test_rejects_target_offset_dump(tmp_path):
+    index, unsupported = make_index(tmp_path)
+    answer = tmp_path / "answer.md"
+    answer.write_text(
+        """
+| name | offset |
+|---|---:|
+| a | 0x11111111 |
+| b | 0x22222222 |
+| c | 0x33333333 |
+| d | 0x44444444 |
+| e | 0x55555555 |
+| f | 0x66666666 |
+""".strip()
+    )
+
+    result = validator.validate(answer, index, unsupported)
+
+    assert not result.ok
+    assert any("offset dump" in error for error in result.errors)
+
+
+def test_rejects_anti_cheat_guarantee_language(tmp_path):
+    index, unsupported = make_index(tmp_path)
+    answer = tmp_path / "answer.md"
+    answer.write_text("This DMA method is undetected and works on EAC.\n")
+
+    result = validator.validate(answer, index, unsupported)
+
+    assert not result.ok
+    assert any("unsafe guarantee" in error for error in result.errors)
+
+
+def test_accepts_warning_about_bad_guarantees(tmp_path):
+    index, unsupported = make_index(tmp_path)
+    answer = tmp_path / "answer.md"
+    answer.write_text("Do not claim a method is undetected or works on EAC.\n")
+
+    result = validator.validate(answer, index, unsupported)
+
+    assert result.ok
