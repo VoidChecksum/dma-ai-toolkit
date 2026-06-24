@@ -151,7 +151,7 @@ dist/
 build/
 *.egg-info/
 .DS_Store
-.worktrees/
+.worktrees
 ```
 
 - [ ] **Step 4: Create pytest config**
