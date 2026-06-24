@@ -40,3 +40,13 @@ def test_accepts_documented_symbol(tmp_path):
 
     assert result.ok
     assert result.errors == []
+
+
+def test_does_not_treat_memory_read_as_dma_namespace(tmp_path):
+    index, unsupported = make_index(tmp_path)
+    answer = tmp_path / "answer.md"
+    answer.write_text("```cpp\nauto value = mem.Read<int>(addr);\n```\n")
+
+    result = validator.validate(answer, index, unsupported)
+
+    assert result.ok

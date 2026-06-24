@@ -41,8 +41,13 @@ def validate(answer_path: str | Path, index_path: str | Path, unsupported_path: 
     errors: list[str] = []
 
     for symbol in sorted(unsupported):
-        bare = symbol.split("::")[-1].removeprefix("mem.")
-        if symbol in answer or re.search(rf"\bmem\.{re.escape(bare)}\s*\(", answer):
+        if symbol.startswith("mem."):
+            pattern = rf"\b{re.escape(symbol)}\s*\("
+        elif symbol.startswith("Memory::"):
+            pattern = rf"\bmem\.{re.escape(symbol.split('::', 1)[1])}\s*\("
+        else:
+            pattern = rf"\b{re.escape(symbol)}\b"
+        if symbol in answer or re.search(pattern, answer):
             errors.append(f"unsupported symbol used: {symbol}")
 
     for match in METHOD_CALL_RE.finditer(answer):
