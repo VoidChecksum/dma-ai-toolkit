@@ -1,0 +1,339 @@
+{
+  "schema": 1,
+  "source": "Metick/DMALibrary",
+  "symbols": [
+    {
+      "access": "public",
+      "class": "c_keys",
+      "file": "DMALibrary/Memory/InputManager.h",
+      "kind": "method",
+      "line": 23,
+      "name": "c_keys::InitKeyboard",
+      "signature": "bool InitKeyboard()"
+    },
+    {
+      "access": "public",
+      "class": "c_keys",
+      "file": "DMALibrary/Memory/InputManager.h",
+      "kind": "method",
+      "line": 25,
+      "name": "c_keys::UpdateKeys",
+      "signature": "void UpdateKeys()"
+    },
+    {
+      "access": "public",
+      "class": "c_keys",
+      "file": "DMALibrary/Memory/InputManager.h",
+      "kind": "method",
+      "line": 26,
+      "name": "c_keys::IsKeyDown",
+      "signature": "bool IsKeyDown(uint32_t virtual_key_code)"
+    },
+    {
+      "access": "private",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 38,
+      "name": "Memory::DumpMemoryMap",
+      "signature": "bool DumpMemoryMap(bool debug = false)"
+    },
+    {
+      "access": "private",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 46,
+      "name": "Memory::SetFPGA",
+      "signature": "bool SetFPGA()"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 68,
+      "name": "Memory::GetRegistry",
+      "signature": "c_registry GetRegistry() { return registry; }"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 74,
+      "name": "Memory::GetKeyboard",
+      "signature": "c_keys* GetKeyboard() { return key.get(); }"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 80,
+      "name": "Memory::GetShellcode",
+      "signature": "c_shellcode GetShellcode() { return shellcode; }"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 89,
+      "name": "Memory::Init",
+      "signature": "bool Init(std::string process_name, bool memMap = true, bool debug = false)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 98,
+      "name": "Memory::GetPidFromName",
+      "signature": "DWORD GetPidFromName(std::string process_name)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 105,
+      "name": "Memory::GetPidListFromName",
+      "signature": "std::vector<int> GetPidListFromName(std::string process_name)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 112,
+      "name": "Memory::GetModuleList",
+      "signature": "std::vector<std::string> GetModuleList(std::string process_name)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 118,
+      "name": "Memory::GetProcessInformation",
+      "signature": "VMMDLL_PROCESS_INFORMATION GetProcessInformation()"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 124,
+      "name": "Memory::GetProcessPeb",
+      "signature": "PEB GetProcessPeb()"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 131,
+      "name": "Memory::GetBaseDaddy",
+      "signature": "size_t GetBaseDaddy(std::string module_name)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 138,
+      "name": "Memory::GetBaseSize",
+      "signature": "size_t GetBaseSize(std::string module_name)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 147,
+      "name": "Memory::GetExportTableAddress",
+      "signature": "uintptr_t GetExportTableAddress(std::string import, std::string process, std::string module)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 156,
+      "name": "Memory::GetImportTableAddress",
+      "signature": "uintptr_t GetImportTableAddress(std::string import, std::string process, std::string module)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 165,
+      "name": "Memory::FixCr3",
+      "signature": "bool FixCr3()"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 172,
+      "name": "Memory::DumpMemory",
+      "signature": "bool DumpMemory(uintptr_t address, std::string path)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 184,
+      "name": "Memory::FindSignature",
+      "signature": "uint64_t FindSignature(const char* signature, uint64_t range_start, uint64_t range_end, int PID = 0)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 193,
+      "name": "Memory::Write",
+      "signature": "bool Write(uintptr_t address, void* buffer, size_t size) const"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 220,
+      "name": "Memory::Read",
+      "signature": "template <typename T> bool Read(uintptr_t address, void* buffer, size_t size) const"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 291,
+      "name": "Memory::CreateScatterHandle",
+      "signature": "template <typename T> VMMDLL_SCATTER_HANDLE CreateScatterHandle() const"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 298,
+      "name": "Memory::CloseScatterHandle",
+      "signature": "void CloseScatterHandle(VMMDLL_SCATTER_HANDLE handle)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 307,
+      "name": "Memory::AddScatterReadRequest",
+      "signature": "void AddScatterReadRequest(VMMDLL_SCATTER_HANDLE handle, uint64_t address, void* buffer, size_t size)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 315,
+      "name": "Memory::AddScatterWriteRequest",
+      "signature": "template <typename T> void AddScatterWriteRequest(VMMDLL_SCATTER_HANDLE handle, uint64_t address, void* buffer, size_t size)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 324,
+      "name": "Memory::ExecuteReadScatter",
+      "signature": "void ExecuteReadScatter(VMMDLL_SCATTER_HANDLE handle, int pid = 0)"
+    },
+    {
+      "access": "public",
+      "class": "Memory",
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "method",
+      "line": 325,
+      "name": "Memory::ExecuteWriteScatter",
+      "signature": "void ExecuteWriteScatter(VMMDLL_SCATTER_HANDLE handle, int pid = 0)"
+    },
+    {
+      "access": "public",
+      "class": "c_registry",
+      "file": "DMALibrary/Memory/Registry.h",
+      "kind": "method",
+      "line": 34,
+      "name": "c_registry::QueryValue",
+      "signature": "std::string QueryValue(const char* path, e_registry_type type)"
+    },
+    {
+      "access": "public",
+      "class": "c_shellcode",
+      "file": "DMALibrary/Memory/Shellcode.h",
+      "kind": "method",
+      "line": 20,
+      "name": "c_shellcode::find_codecave",
+      "signature": "uint64_t find_codecave(size_t function_size, const std::string& process_name, const std::string& module)"
+    },
+    {
+      "access": "public",
+      "class": "c_shellcode",
+      "file": "DMALibrary/Memory/Shellcode.h",
+      "kind": "method",
+      "line": 28,
+      "name": "c_shellcode::find_all_codecave",
+      "signature": "std::vector<uint64_t> find_all_codecave(size_t function_size, const std::string& process_name)"
+    },
+    {
+      "access": "public",
+      "class": "c_shellcode",
+      "file": "DMALibrary/Memory/Shellcode.h",
+      "kind": "method",
+      "line": 36,
+      "name": "c_shellcode::call_function",
+      "signature": "bool call_function(void* hook, void* function, const std::string& process_name)"
+    },
+    {
+      "access": null,
+      "class": null,
+      "file": "DMALibrary/Memory/InputManager.h",
+      "kind": "class",
+      "line": 5,
+      "name": "c_keys",
+      "signature": "class c_keys"
+    },
+    {
+      "access": null,
+      "class": null,
+      "file": "DMALibrary/Memory/Memory.h",
+      "kind": "class",
+      "line": 8,
+      "name": "Memory",
+      "signature": "class Memory"
+    },
+    {
+      "access": null,
+      "class": null,
+      "file": "DMALibrary/Memory/Registry.h",
+      "kind": "class",
+      "line": 22,
+      "name": "c_registry",
+      "signature": "class c_registry"
+    },
+    {
+      "access": null,
+      "class": null,
+      "file": "DMALibrary/Memory/Shellcode.h",
+      "kind": "class",
+      "line": 5,
+      "name": "c_shellcode",
+      "signature": "class c_shellcode"
+    }
+  ]
+}

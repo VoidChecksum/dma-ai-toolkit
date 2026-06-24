@@ -1,0 +1,3 @@
+[submodule "third_party/DMALibrary"]
+	path = third_party/DMALibrary
+	url = https://github.com/Metick/DMALibrary
