@@ -14,9 +14,11 @@ This is not a target-specific offset pack, anti-cheat bypass guide, or turnkey c
 
 1. Read `docs/AI_AGENT_OPERATING_MANUAL.md`.
 2. Read `docs/llms-dma.md`.
-3. Verify every DMALibrary symbol against `knowledge/dmalibrary-api-index.json`.
-4. For reverse-engineering work, keep evidence in `docs/reverse-engineering/evidence-log.md` format.
-5. Run `python tools/validate-cpp-answer.py <file>` before trusting generated answers or snippets.
+3. For ecosystem context, read `docs/research/github-dma-ecosystem.md` and `docs/research/unknowncheats-dma-lessons.md`.
+4. For DMALibrary usage, read the matching cookbook under `docs/dmalibrary/`.
+5. Verify every DMALibrary symbol against `knowledge/dmalibrary-api-index.json`.
+6. Check cited research in `knowledge/research-sources.json`.
+7. Run `python tools/validate-cpp-answer.py <file>` before trusting generated answers or snippets.
 
 ## Optional DMALibrary Source
 

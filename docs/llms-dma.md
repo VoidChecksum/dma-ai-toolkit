@@ -20,3 +20,13 @@ Use DMALibrary only through source-proven symbols in `knowledge/dmalibrary-api-i
 - Prefer explicit buffer reads for strings and structs.
 - Keep templates non-target-specific.
 - Keep reverse-engineering conclusions tied to evidence.
+
+## Research-Backed Guidance
+
+- Use `docs/dmalibrary/scatter-cookbook.md` for scatter handle lifecycle and two-phase dependent reads.
+- Use `docs/dmalibrary/signature-scan-cookbook.md` for `FindSignature` range selection.
+- Use `docs/dmalibrary/reliability.md` for stale data, health states, recovery, and CR3/base caveats.
+- Use `docs/research/github-dma-ecosystem.md` for public repo lessons.
+- Use `docs/research/unknowncheats-dma-lessons.md` for forum-derived developer pain points.
+
+Do not output target-specific offsets, anti-cheat bypass claims, or guarantees like "undetected".

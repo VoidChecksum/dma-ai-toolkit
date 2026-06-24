@@ -10,7 +10,7 @@ from pathlib import Path
 METHOD_CALL_RE = re.compile(r"\bmem\.(?P<name>[A-Za-z_]\w*)\s*(?:<[^>]+>)?\s*\(")
 OFFSET_RE = re.compile(r"\b0x[0-9A-Fa-f]{4,}\b")
 UNSAFE_GUARANTEE_RE = re.compile(r"\b(undetected|works on\s+(?:EAC|FACEIT|Vanguard)|bypass(?:es|ed|ing)?)\b", re.IGNORECASE)
-WARNING_PREFIX_RE = re.compile(r"\b(do not|don't|never|avoid|no)\b", re.IGNORECASE)
+WARNING_PREFIX_RE = re.compile(r"\b(do not|don't|never|avoid|no|not)\b", re.IGNORECASE)
 
 
 
