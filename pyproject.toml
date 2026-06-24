@@ -1,0 +1,9 @@
+[project]
+name = "dma-ai-toolkit"
+version = "0.1.0"
+description = "Source-grounded AI toolkit for authorized DMALibrary workflows"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
