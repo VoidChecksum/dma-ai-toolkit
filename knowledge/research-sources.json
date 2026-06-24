@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "id": "github-pcileech",
+      "type": "github-repo",
+      "url": "https://github.com/ufrisk/pcileech",
+      "facts": [
+        "PCILeech documents hardware and software acquisition methods in a capability matrix.",
+        "PCILeech explicitly documents limitations such as IOMMU/VT-d and modern OS DMA protections.",
+        "PCILeech points users to LeechCore and MemProcFS as ecosystem dependencies."
+      ]
+    },
+    {
+      "id": "github-memprocfs",
+      "type": "github-repo",
+      "url": "https://github.com/ufrisk/MemProcFS",
+      "facts": [
+        "MemProcFS presents memory as a virtual file system and as APIs for C/C++, C#, Python, Rust, Java, and Go.",
+        "MemProcFS documents dependency setup for Windows, Linux, macOS, FPGA, and software acquisition modes.",
+        "MemProcFS release notes call out API changes, refresh options, logging callbacks, and scatter-read performance improvements."
+      ]
+    },
+    {
+      "id": "github-orpheus",
+      "type": "github-repo",
+      "url": "https://github.com/super2xl/orpheus",
+      "facts": [
+        "Orpheus groups MCP tools into memory, analysis, functions, RTTI, snapshots, emulation, and utilities.",
+        "Orpheus documents automatic and manual MCP setup for AI assistants.",
+        "Orpheus separates DMA interface, analysis, decompiler, emulation, MCP, and utilities in its project structure."
+      ]
+    },
+    {
+      "id": "github-cs2-dma",
+      "type": "github-repo",
+      "url": "https://github.com/chao-shushu/CS2-DMA",
+      "facts": [
+        "CS2-DMA documents scatter batch reads, on-demand reading, tiered entity caching, and zero-copy snapshots.",
+        "CS2-DMA uses health states and progressive recovery vocabulary for DMA read failures.",
+        "CS2-DMA documents logging, crash dumps, config persistence, update checks, and runtime stats."
+      ]
+    },
+    {
+      "id": "github-dma-mouse-control",
+      "type": "github-repo",
+      "url": "https://github.com/J4sp3rTM/DMA-Mouse-Control",
+      "facts": [
+        "DMA-Mouse-Control uses a small quickstart, clear requirements, simple API reference, architecture diagram, and troubleshooting section.",
+        "Its simple public API demonstrates how lightweight wrappers reduce onboarding friction.",
+        "The project includes a disclaimer but its target behavior is not suitable to copy into this toolkit."
+      ]
+    },
+    {
+      "id": "github-volkdma",
+      "type": "github-repo",
+      "url": "https://github.com/lyk64/VolkDMA",
+      "facts": [
+        "VolkDMA advertises RAII DMA handles, optional memmap bootstrapping, PID lookup, module metadata, pointer chains, scatter I/O, v2p translation, and CR3 fix.",
+        "VolkDMA shows DMALibrary-adjacent vocabulary useful for API comparison docs.",
+        "VolkDMA includes patched binaries, which this toolkit should not vendor."
+      ]
+    },
+    {
+      "id": "uc-dmalibrary-thread",
+      "type": "forum-thread",
+      "url": "https://www.unknowncheats.me/forum/general-programming-and-reversing/614269-dmalibrary-extensive-dma-library.html",
+      "facts": [
+        "Users asked for Memory::FindSignature range examples.",
+        "Users asked for scatter read performance examples.",
+        "The DMALibrary author explained that dependent scatter reads require executing the first batch before using returned pointer values."
+      ]
+    },
+    {
+      "id": "uc-vmmsharp-wrapper-thread",
+      "type": "forum-thread",
+      "url": "https://www.unknowncheats.me/forum/c-/522455-memprocfs-vmmsharp-dma-wrapper.html",
+      "facts": [
+        "Users discussed wrapper-over-wrapper tradeoffs around Vmmsharp and custom abstractions.",
+        "Participants noted byte reads plus typed conversion as the minimal primitive for many wrappers.",
+        "Users reported scatter-read performance can regress when abstractions add boxing, exceptions, or CPU overhead."
+      ]
+    },
+    {
+      "id": "uc-eft-dma-radar-lite",
+      "type": "forum-thread",
+      "url": "https://www.unknowncheats.me/forum/escape-from-tarkov/712525-eft-dma-radar-lite-wpf.html",
+      "facts": [
+        "The post emphasizes clean code, WPF, MVVM patterns, and source-only distribution.",
+        "Forum replies show users need clear startup instructions for source-only releases.",
+        "File approval output includes dependency hashes, showing release hygiene expectations."
+      ]
+    },
+    {
+      "id": "uc-cr3-physical-memory-thread",
+      "type": "forum-thread",
+      "url": "https://www.unknowncheats.me/forum/anti-cheat-bypass/591802-search-physical-memory-target-processs-cr3.html",
+      "facts": [
+        "Forum discussion treats PE-header based CR3/base discovery as brittle.",
+        "Participants note PE headers may not always be reliable evidence.",
+        "CR3/base heuristics should be documented as caveated reliability topics, not guaranteed recipes."
+      ]
+    }
+  ]
+}
