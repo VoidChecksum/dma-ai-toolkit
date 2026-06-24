@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "symbols": [
+    "DMA::Read",
+    "DMA::Write",
+    "mem.ReadString",
+    "Memory::ReadString",
+    "Memory::GetModuleBase",
+    "draw_esp",
+    "get_offsets"
+  ]
+}
