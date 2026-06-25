@@ -30,3 +30,11 @@ Use DMALibrary only through source-proven symbols in `knowledge/dmalibrary-api-i
 - Use `docs/research/unknowncheats-dma-lessons.md` for forum-derived developer pain points.
 
 Do not output target-specific offsets, anti-cheat bypass claims, or guarantees like "undetected".
+
+## Agent Runtime Commands
+
+- `python tools/dma.py overview` — project contract.
+- `python tools/dma.py recommend-context "<task>"` — focused doc list.
+- `python tools/dma.py api Memory::Read` — source-backed API proof.
+- `python tools/dma.py validate-answer <file>` — answer validation.
+- MCP server: `python mcp/dma_mcp.py`.
