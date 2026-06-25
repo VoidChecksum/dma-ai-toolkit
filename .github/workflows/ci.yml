@@ -16,7 +16,5 @@ jobs:
           python-version: '3.12'
       - name: Install test dependency
         run: python -m pip install pytest
-      - name: Run tests
-        run: python -m pytest -v
-      - name: Validate README
-        run: python tools/validate-cpp-answer.py README.md
+      - name: Run pre-ship checks
+        run: python tools/pre-ship-check.py
